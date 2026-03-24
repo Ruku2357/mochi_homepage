@@ -96,6 +96,13 @@ const ClockIcon = (props) => (
   </IconWrapper>
 );
 
+const ShieldCheckIcon = (props) => (
+  <IconWrapper {...props}>
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    <path d="m9 12 2 2 4-4" />
+  </IconWrapper>
+);
+
 const MailIcon = (props) => (
   <IconWrapper {...props}>
     <rect width="20" height="16" x="2" y="4" rx="2" />
@@ -122,8 +129,8 @@ const HeroBadge = () => (
     <div className="text-[#4a9d86]">
       <SparklesIcon size={20} className="group-hover:rotate-12 transition-transform" />
     </div>
-    <span className="text-[#4a9d86] text-xs md:text-sm font-black tracking-[0.15em] uppercase leading-none">
-      Smooth Business Experience
+    <span className="text-[#4a9d86] text-xs md:text-sm font-black tracking-[0.15em] uppercase leading-none text-left">
+      Professional Service Standard
     </span>
   </div>
 );
@@ -166,24 +173,23 @@ const App = () => {
       case 'home':
         return (
           <>
-            {/* Hero */}
-            <section className="relative pt-40 pb-20 md:pt-60 md:pb-40 bg-[#f8fbfa] overflow-hidden">
-              <div className="max-w-6xl mx-auto px-6 relative z-10 text-center">
+            <section className="relative pt-40 pb-20 md:pt-60 md:pb-40 bg-[#f8fbfa] overflow-hidden text-left">
+              <div className="max-w-6xl mx-auto px-6 relative z-10 flex flex-col items-center">
                 <HeroBadge />
-                <h1 className="text-5xl md:text-[5.5rem] font-black text-[#1a202c] leading-[1.05] mb-10 tracking-tight">
+                <h1 className="text-5xl md:text-[5.5rem] font-black text-[#1a202c] leading-[1.05] mb-10 tracking-tight text-center">
                   ビジネスを、もっと<br />
-                  <span className="text-[#4a9d86]">しなやかに。</span>
+                  <span className="text-[#4a9d86]">プロフェッショナル</span>に。
                 </h1>
-                <p className="text-lg md:text-xl text-slate-500 mb-14 leading-relaxed max-w-2xl mx-auto font-medium">
-                  Mochi合同会社は、エネルギー・IT・バックオフィス業務を<br className="hidden md:block" />
-                  「仕組み」でつなぎ、企業の成長を柔らかくサポートします。
+                <p className="text-lg md:text-xl text-slate-500 mb-14 leading-relaxed max-w-2xl mx-auto font-medium text-center">
+                  Mochi合同会社は、サブリリースに向けた高品質なサービス体制を提供します。<br className="hidden md:block" />
+                  「個人」を超えた「仕組み」による信頼で、貴方のビジネスを加速させます。
                 </p>
                 <div className="flex justify-center">
                   <button 
                     onClick={() => setCurrentPage('services')}
                     className="px-12 py-5 bg-[#4a9d86] text-white rounded-2xl font-black text-lg hover:bg-[#3d826f] shadow-lg shadow-[#4a9d86]/20 transition-all flex items-center justify-center space-x-3 group"
                   >
-                    <span>サービスを見る</span>
+                    <span>提供サービスを見る</span>
                     <ArrowRightIcon size={20} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -191,73 +197,40 @@ const App = () => {
               <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
             </section>
             
-            {/* Services Preview */}
             <section className="py-20 bg-white">
               <div className="max-w-6xl mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                  <ServiceCard 
-                    icon={<ZapIcon size={36} />}
-                    title="再生可能エネルギー事業"
-                    desc="太陽光発電設備の販売・設置、およびコンサルティング。エネルギーの自給自足とコスト削減を、確かな技術で実現します。"
-                  />
-                  <ServiceCard 
-                    icon={<SettingsIcon size={36} />}
-                    title="経営・事務DX代行"
-                    desc="人事、総務、財務などのバックオフィス業務をシステム化。ミスを減らし、本来集中すべき業務への時間を創出します。"
-                  />
-                  <ServiceCard 
-                    icon={<CpuIcon size={36} />}
-                    title="ITソリューション開発"
-                    desc="業務フローに最適化されたソフトウェアやシステムの受託開発。企画から運用まで、スピード感を持って実装します。"
-                  />
-                  <ServiceCard 
-                    icon={<ChartIcon size={36} />}
-                    title="マーケティングリサーチ"
-                    desc="市場の動向を構造的に分析し、戦略的な意思決定をサポート。データに基づいた確度の高い成長戦略を描きます。"
-                  />
-                </div>
-              </div>
-            </section>
-            
-            {/* Company Section Preview */}
-            <section className="py-20 bg-[#f8fbfa]">
-              <div className="max-w-6xl mx-auto px-6">
-                <div className="bg-white rounded-[3.5rem] p-12 md:p-20 shadow-sm border border-slate-100 flex flex-col md:flex-row gap-16 items-start">
-                  <div className="md:w-1/3 text-left">
-                    <h2 className="text-[#4a9d86] text-sm font-black tracking-[0.4em] uppercase mb-6">Company</h2>
-                    <p className="text-4xl font-black text-[#1a202c] tracking-tight leading-tight">柔らかく、<br />粘り強く支える。</p>
-                  </div>
-                  <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-10 text-left">
-                    {[
-                      { label: "商号", value: "Mochi合同会社" },
-                      { label: "代表社員", value: "山崎 啓太" },
-                      { label: "設立", value: "2021年2月15日" },
-                      { label: "本店所在地", value: "埼玉県蓮田市大字貝塚71番地" }
-                    ].map((item, i) => (
-                      <div key={i} className="space-y-2">
-                        <p className="text-[10px] font-black text-[#4a9d86]/60 tracking-widest uppercase">{item.label}</p>
-                        <p className="text-lg font-bold text-slate-800">{item.value}</p>
-                      </div>
-                    ))}
-                  </div>
+                  <ServiceCard icon={<ShieldCheckIcon size={36} />} title="サブリリース支援" desc="単なる個人間のやり取りに留まらない、公的な信頼性を担保するサービス体裁の構築。対外的なプレゼンスを「形」にすることから始まります。" />
+                  <ServiceCard icon={<SettingsIcon size={36} />} title="事務代行・システム化" desc="月末の請求書発行（ホテル関連等）などのルーチンワークを徹底的にテンプレート化。ミスなく、短時間で遂行できる拠点を構築します。" />
+                  <ServiceCard icon={<CpuIcon size={36} />} title="ITソリューション開発" desc="業務フローに最適化されたソフトウェアやシステムの受託開発。企画から運用まで、スピード感を持って実装します。" />
+                  <ServiceCard icon={<ZapIcon size={36} />} title="エネルギー事業" desc="太陽光発電設備の販売・設置、およびコンサルティング。エネルギーの自給自足とコスト削減を実現します。" />
                 </div>
               </div>
             </section>
 
-            {/* Contact */}
-            <section className="py-32 px-6 bg-white">
-              <div className="max-w-4xl mx-auto text-center">
-                <h2 className="text-4xl md:text-5xl font-black text-[#1a202c] mb-8 tracking-tight">ビジネスを一歩、先へ。</h2>
-                <p className="text-slate-500 mb-14 font-medium text-lg">
-                  事務の効率化から新規事業のシステム構築まで、<br />お気軽にご相談ください。
-                </p>
-                <a 
-                  href="mailto:contact@mochi-llc.com"
-                  className="inline-flex items-center space-x-4 px-12 py-6 bg-[#1a202c] text-white rounded-2xl font-black text-xl hover:bg-[#4a9d86] hover:scale-105 transition-all shadow-xl shadow-slate-200"
-                >
-                  <MailIcon size={24} />
-                  <span>お問い合わせ</span>
-                </a>
+            <section className="py-20 bg-[#f8fbfa]">
+              <div className="max-w-6xl mx-auto px-6">
+                <div className="bg-white rounded-[3.5rem] p-12 md:p-20 shadow-sm border border-slate-100 flex flex-col md:flex-row gap-16 items-start">
+                  <div className="md:w-1/3 text-left">
+                    <h2 className="text-[#4a9d86] text-sm font-black tracking-[0.4em] uppercase mb-6">Service Positioning</h2>
+                    <p className="text-4xl font-black text-[#1a202c] tracking-tight leading-tight text-left">「形」が、<br />信頼を生む。</p>
+                  </div>
+                  <div className="md:w-2/3 text-left">
+                    <p className="text-lg text-slate-600 leading-relaxed font-medium mb-8">
+                      Mochiは、ビジネスの初期フェーズにおいて最も重要な「信頼」をデザインします。しっかりとしたサービス体裁を整えることで、取引の確実性を担保し、事務作業をシステム化することでヒューマンエラーを排除します。
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div className="p-6 bg-[#f8fbfa] rounded-2xl border border-emerald-50">
+                        <span className="text-emerald-600 font-black text-xs uppercase tracking-widest mb-2 block">Efficiency</span>
+                        <p className="font-bold text-slate-800">ルーチンワークのテンプレート化</p>
+                      </div>
+                      <div className="p-6 bg-[#f8fbfa] rounded-2xl border border-emerald-50">
+                        <span className="text-emerald-600 font-black text-xs uppercase tracking-widest mb-2 block">Reliability</span>
+                        <p className="font-bold text-slate-800">対外的な信頼性の獲得</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
           </>
@@ -265,51 +238,40 @@ const App = () => {
       case 'services':
         return (
           <div className="pt-20">
-            <section className="py-20 bg-white">
-              <div className="max-w-6xl mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                  <ServiceCard icon={<ZapIcon size={36} />} title="再生可能エネルギー事業" desc="太陽光発電設備の販売・設置、およびコンサルティング。" />
-                  <ServiceCard icon={<SettingsIcon size={36} />} title="経営・事務DX代行" desc="バックオフィス業務をシステム化。ミスを減らし時間を創出します。" />
-                  <ServiceCard icon={<CpuIcon size={36} />} title="ITソリューション開発" desc="業務フローに最適化されたシステムの受託開発。" />
-                  <ServiceCard icon={<ChartIcon size={36} />} title="マーケティングリサーチ" desc="市場の動向を構造的に分析し、意思決定をサポート。" />
-                </div>
-              </div>
-            </section>
-            <div className="bg-[#f0f9f6] py-32 px-6">
+            <section className="bg-[#f0f9f6] py-32 px-6">
               <div className="max-w-3xl mx-auto text-center">
                 <h2 className="text-4xl font-black text-[#1a202c] mb-12 tracking-tight">実務を「仕組み」で解決する。</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left text-left">
                   <div className="bg-white p-8 rounded-3xl border border-white shadow-sm">
                     <div className="w-12 h-12 bg-[#f0f9f6] rounded-xl flex items-center justify-center text-[#4a9d86] mb-6"><FileTextIcon /></div>
-                    <h4 className="text-xl font-black mb-4">事務作業の自動化</h4>
-                    <p className="text-slate-500 text-sm font-medium">請求書発行やデータ管理など、繰り返されるルーチンワークをテンプレート化し、ヒューマンエラーをゼロにします。</p>
+                    <h4 className="text-xl font-black mb-4">請求書発行の自動化</h4>
+                    <p className="text-slate-500 text-sm font-medium">ホテル関連業務などの月末の請求書発行をテンプレート化。誰が担当してもミスなく短時間で遂行できる体制を構築します。</p>
                   </div>
                   <div className="bg-white p-8 rounded-3xl border border-white shadow-sm">
                     <div className="w-12 h-12 bg-[#f0f9f6] rounded-xl flex items-center justify-center text-[#4a9d86] mb-6"><ClockIcon /></div>
-                    <h4 className="text-xl font-black mb-4">リードタイムの短縮</h4>
-                    <p className="text-slate-500 text-sm font-medium">業務フローのボトルネックを特定し、ITツールを活用することで、意思決定と実行のスピードを加速させます。</p>
+                    <h4 className="text-xl font-black mb-4">業務プロセスの効率化</h4>
+                    <p className="text-slate-500 text-sm font-medium">ボトルネックとなっている事務作業を特定し、ITツールを活用して最適化。本来集中すべき業務への時間を最大化します。</p>
                   </div>
                 </div>
               </div>
-            </div>
-            <section className="py-20 bg-white text-center"><button onClick={() => setCurrentPage('contact')} className="px-10 py-4 bg-[#1a202c] text-white rounded-xl font-bold">ご相談はこちら</button></section>
+            </section>
           </div>
         );
       case 'company':
         return (
           <div className="pt-20">
-            <section className="py-32 bg-[#f8fbfa]">
-              <div className="max-w-6xl mx-auto px-6 text-left">
+            <section className="py-32 bg-[#f8fbfa] px-6 text-left">
+              <div className="max-w-6xl mx-auto">
                 <div className="bg-white rounded-[3.5rem] p-12 md:p-20 shadow-sm border border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-10">
                   {[
                     { label: "商号", value: "Mochi合同会社 (Mochi LLC)" },
                     { label: "設立", value: "2021年2月15日" },
-                    { label: "本店所在地", value: "埼玉県蓮田市大字貝塚71番地" },
+                    { label: "所在地", value: "埼玉県蓮田市大字貝塚71番地" },
                     { label: "代表社員", value: "山崎 啓太" },
                     { label: "資本金", value: "1,000,000円" },
                     { label: "法人番号", value: "0300-03-016708" }
                   ].map((item, i) => (
-                    <div key={i} className="space-y-2">
+                    <div key={i} className="space-y-2 text-left text-left">
                       <p className="text-[10px] font-black text-[#4a9d86]/60 tracking-widest uppercase">{item.label}</p>
                       <p className="text-lg font-bold text-slate-800">{item.value}</p>
                     </div>
@@ -318,44 +280,27 @@ const App = () => {
               </div>
             </section>
             <div className="max-w-6xl mx-auto px-6 py-24 text-left">
-              <h3 className="text-2xl font-black mb-12 flex items-center space-x-3">
-                <div className="w-1.5 h-6 bg-[#4a9d86] rounded-full"></div>
+              <h3 className="text-2xl font-black mb-12 flex items-center space-x-3 text-left">
+                <div className="w-1.5 h-6 bg-[#4a9d86] rounded-full text-left"></div>
                 <span>主な事業目的</span>
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-left">
                 {[
                   "再生可能エネルギー装置の販売・コンサル",
                   "経営に関する総合コンサルティング",
                   "マーケティングリサーチ業務",
                   "人事、総務、財務、経理の代行",
-                  "運営管理受託業務",
-                  "労働者派遣・有料職業紹介事業",
-                  "人材リサーチ業務",
-                  "人材育成・教育研修事業",
                   "営業代行及び事務代行業務",
-                  "情報通信システム・ソフトの企画・開発",
-                  "電気料金等のコスト削減事業",
+                  "ITシステムの企画・開発・運用",
+                  "ホテル関連等の事務フロー構築",
                   "前各号に附帯する一切の事業"
                 ].map((text, i) => (
-                  <div key={i} className="flex items-center space-x-4 p-5 rounded-2xl bg-white border border-slate-100 hover:border-[#4a9d86] transition-all">
+                  <div key={i} className="flex items-center space-x-4 p-5 rounded-2xl bg-white border border-slate-100 hover:border-[#4a9d86] transition-all text-left">
                     <CheckCircleIcon size={16} className="text-[#4a9d86] shrink-0" />
-                    <span className="text-slate-700 text-sm font-bold">{text}</span>
+                    <span className="text-slate-700 text-sm font-bold text-left">{text}</span>
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        );
-      case 'contact':
-        return (
-          <div className="pt-40 pb-20 min-h-[90vh] flex flex-col items-center justify-center bg-[#f8fbfa] text-center">
-            <HeroBadge />
-            <h2 className="text-5xl font-black text-[#1a202c] mb-8 tracking-tight">Let's Talk.</h2>
-            <p className="text-slate-500 font-medium mb-12">プロジェクトの相談、業務提携、資料請求など<br />お気軽にお問い合わせください。</p>
-            <div className="bg-white p-12 rounded-[3.5rem] shadow-2xl shadow-emerald-900/5 text-center border border-slate-50 max-w-lg w-full">
-              <div className="w-20 h-20 bg-[#4a9d86] text-white rounded-[2rem] flex items-center justify-center mx-auto mb-8 shadow-xl shadow-emerald-200"><MailIcon size={32} /></div>
-              <p className="text-[10px] font-black text-[#4a9d86] tracking-[0.4em] uppercase mb-4">Direct Communication</p>
-              <a href="mailto:contact@mochi-llc.com" className="text-3xl font-black text-slate-900 hover:text-[#4a9d86] transition-colors break-all">contact@mochi-llc.com</a>
             </div>
           </div>
         );
@@ -365,78 +310,33 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen text-[#1a202c] bg-white">
-      {/* Navigation */}
+    <div className="min-h-screen text-[#1a202c] bg-white text-left">
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md border-b border-slate-100 py-3' : 'bg-transparent py-6'}`}>
         <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
-          <div onClick={() => setCurrentPage('home')}>
-            <Logo />
-          </div>
-
+          <div onClick={() => setCurrentPage('home')}><Logo /></div>
           <div className="hidden md:flex items-center space-x-10">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setCurrentPage(item.id)}
-                className={`text-sm font-bold transition-colors hover:text-[#4a9d86] ${currentPage === item.id ? 'text-[#4a9d86]' : 'text-slate-500'}`}
-              >
-                {item.label}
-              </button>
+              <button key={item.id} onClick={() => setCurrentPage(item.id)} className={`text-sm font-bold transition-colors hover:text-[#4a9d86] ${currentPage === item.id ? 'text-[#4a9d86]' : 'text-slate-500'}`}>{item.label}</button>
             ))}
-            <button 
-              onClick={() => setCurrentPage('contact')}
-              className="px-6 py-2.5 bg-[#1a202c] text-white rounded-full text-sm font-bold hover:bg-[#4a9d86] transition-all"
-            >
-              ご相談
-            </button>
+            <button onClick={() => setCurrentPage('contact')} className="px-6 py-2.5 bg-[#1a202c] text-white rounded-full text-sm font-bold hover:bg-[#4a9d86] transition-all">ご相談</button>
           </div>
-
-          <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}
-          </button>
+          <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}</button>
         </div>
-
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-white z-[60] p-8 flex flex-col animate-in fade-in slide-in-from-top duration-300 text-left">
-            <div className="flex justify-between items-center mb-12">
-              <Logo />
-              <button onClick={() => setIsMenuOpen(false)}><XIcon size={32} className="text-slate-400" /></button>
-            </div>
-            <div className="flex flex-col space-y-8">
+          <div className="fixed inset-0 bg-white z-[60] p-8 flex flex-col text-left animate-in fade-in slide-in-from-top duration-300 text-left">
+            <div className="flex justify-between items-center mb-12"><Logo /><button onClick={() => setIsMenuOpen(false)}><XIcon size={32} className="text-slate-400" /></button></div>
+            <div className="flex flex-col space-y-8 text-left text-left">
               {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => { setCurrentPage(item.id); setIsMenuOpen(false); }}
-                  className="text-left text-4xl font-black text-slate-800"
-                >
-                  {item.label}
-                </button>
+                <button key={item.id} onClick={() => { setCurrentPage(item.id); setIsMenuOpen(false); }} className="text-left text-4xl font-black text-slate-800">{item.label}</button>
               ))}
-              <button 
-                onClick={() => { setCurrentPage('contact'); setIsMenuOpen(false); }}
-                className="text-left text-4xl font-black text-[#4a9d86]"
-              >
-                お問い合わせ
-              </button>
             </div>
           </div>
         )}
       </nav>
-
-      <main>
-        {renderPage()}
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-[#f8fbfa] border-t border-slate-100 py-20 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-10 md:space-y-0 text-left md:text-center">
-          <Logo />
-          <div className="flex space-x-12 text-sm font-bold text-slate-500">
-            <button onClick={() => setCurrentPage('home')} className="hover:text-[#4a9d86]">Home</button>
-            <button onClick={() => setCurrentPage('services')} className="hover:text-[#4a9d86]">Services</button>
-            <button onClick={() => setCurrentPage('company')} className="hover:text-[#4a9d86]">Company</button>
-          </div>
-          <p className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em]">© 2021 Mochi LLC. All rights reserved.</p>
+      <main className="text-left">{renderPage()}</main>
+      <footer className="bg-[#f8fbfa] border-t border-slate-100 py-20 px-6 text-left">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-10 md:space-y-0 text-left md:text-center text-left">
+          <Logo /><p className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em]">© 2021 Mochi LLC. All rights reserved.</p>
         </div>
       </footer>
     </div>
