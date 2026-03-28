@@ -86,6 +86,16 @@ const CheckCircleIcon = (props) => (
   </IconWrapper>
 );
 
+const BuildingIcon = (props) => (
+  <IconWrapper {...props}>
+    <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
+    <path d="M9 22v-4h6v4" />
+    <path d="M8 6h.01" /><path d="M16 6h.01" />
+    <path d="M8 10h.01" /><path d="M16 10h.01" />
+    <path d="M8 14h.01" /><path d="M16 14h.01" />
+  </IconWrapper>
+);
+
 // --- Constants ---
 const NAV_ITEMS = [
   { id: 'home', label: 'トップ' },
@@ -102,7 +112,7 @@ const Logo = () => (
     </div>
     <div className="flex flex-col text-left">
       <span className="text-2xl font-[900] tracking-tight text-[#1a202c] leading-none">Mochi</span>
-      <span className="text-[10px] text-[#4a9d86] font-black tracking-[0.45em] uppercase mt-1 leading-none">Management & Tech</span>
+      <span className="text-[10px] text-[#4a9d86] font-black tracking-[0.45em] uppercase mt-1 leading-none text-left">Management & Tech</span>
     </div>
   </div>
 );
@@ -139,11 +149,14 @@ const App = () => {
               <div className="max-w-6xl mx-auto px-6 relative z-10 flex flex-col items-center">
                 <div className="inline-flex items-center space-x-3 px-6 py-3 rounded-full border border-[#e0f2ed] bg-white shadow-sm mb-10 group transition-all hover:border-[#4a9d86]">
                   <SparklesIcon size={20} className="text-[#4a9d86] group-hover:rotate-12 transition-transform" />
-                  <span className="text-[#4a9d86] text-xs md:text-sm font-black tracking-[0.15em] uppercase leading-none">Professional Service Standard</span>
+                  <span className="text-[#4a9d86] text-xs md:text-sm font-black tracking-[0.15em] uppercase leading-none text-left">Professional Service Standard</span>
                 </div>
                 <h1 className="text-5xl md:text-[5.5rem] font-black text-[#1a202c] leading-[1.05] mb-10 tracking-tight text-center">ビジネスを、もっと<br /><span className="text-[#4a9d86]">プロフェッショナル</span>に。</h1>
-                <p className="text-lg md:text-xl text-slate-500 mb-14 leading-relaxed max-w-2xl mx-auto font-medium text-center">Mochi合同会社は、サブリリースに向けた高品質なサービス体制を提供します。<br className="hidden md:block" />「個人」を超えた「仕組み」による信頼で、貴方のビジネスを加速させます。</p>
-                <button onClick={() => setCurrentPage('services')} className="px-12 py-5 bg-[#4a9d86] text-white rounded-2xl font-black text-lg hover:bg-[#3d826f] shadow-lg shadow-[#4a9d86]/20 transition-all">サービスを見る</button>
+                <p className="text-lg md:text-xl text-slate-500 mb-14 leading-relaxed max-w-2xl mx-auto font-medium text-center">Mochi合同会社は、サブリース事業における高品質な運営管理体制を提供します。<br className="hidden md:block" />「仕組み」による信頼で、オーナー様と貴方のビジネスを強固にサポートします。</p>
+                <button onClick={() => setCurrentPage('services')} className="px-12 py-5 bg-[#4a9d86] text-white rounded-2xl font-black text-lg hover:bg-[#3d826f] shadow-lg shadow-[#4a9d86]/20 transition-all flex items-center justify-center space-x-3 group">
+                  <span>サービスを見る</span>
+                  <ArrowRightIcon size={20} className="group-hover:translate-x-1 transition-transform" />
+                </button>
               </div>
             </section>
 
@@ -152,20 +165,20 @@ const App = () => {
                 <div className="bg-[#1a202c] rounded-[3.5rem] p-12 md:p-20 text-white overflow-hidden relative shadow-2xl">
                   <div className="relative z-10 max-w-2xl text-left">
                     <h2 className="text-[#4a9d86] text-sm font-black tracking-[0.4em] uppercase mb-8 text-left">Our Mission</h2>
-                    <p className="text-3xl md:text-5xl font-[900] mb-10 leading-tight text-left">「形」を整え、<br />「実務」をシステム化する。</p>
+                    <p className="text-3xl md:text-5xl font-[900] mb-10 leading-tight text-left">「仕組み」で支え、<br />「信頼」をシステム化する。</p>
                     <div className="space-y-12">
                       <div className="flex items-start space-x-6 text-left">
-                        <div className="w-12 h-12 bg-[#4a9d86] rounded-2xl flex items-center justify-center shrink-0"><ShieldCheckIcon size={24} /></div>
+                        <div className="w-12 h-12 bg-[#4a9d86] rounded-2xl flex items-center justify-center shrink-0"><BuildingIcon size={24} /></div>
                         <div className="text-left">
-                          <h4 className="text-xl font-bold mb-2 text-left">サブリリース向けのサービス体裁</h4>
-                          <p className="text-slate-400 text-sm leading-relaxed text-left">単なる個人間のやり取りではなく、しっかりとした「サービス」としての形式を整えることで、取引の信頼性を100%担保します。</p>
+                          <h4 className="text-xl font-bold mb-2 text-left">サブリース管理の適正化</h4>
+                          <p className="text-slate-400 text-sm leading-relaxed text-left text-left">単なる物件管理に留まらない、しっかりとした「サービス」としての形式を整えることで、オーナー様との取引の信頼性を担保します。</p>
                         </div>
                       </div>
                       <div className="flex items-start space-x-6 text-left">
                         <div className="w-12 h-12 bg-[#4a9d86] rounded-2xl flex items-center justify-center shrink-0"><FileTextIcon size={24} /></div>
                         <div className="text-left">
-                          <h4 className="text-xl font-bold mb-2 text-left">事務作業のシステム化・効率化</h4>
-                          <p className="text-slate-400 text-sm leading-relaxed text-left">月末の請求書発行（ホテル関連など）といったルーチンワークをテンプレート化。短時間でミスなく遂行できる仕組みを提供します。</p>
+                          <h4 className="text-xl font-bold mb-2 text-left">事務作業の自動化・効率化拠点</h4>
+                          <p className="text-slate-400 text-sm leading-relaxed text-left text-left text-left text-left">月末の請求書発行（ホテル関連・宿泊管理など）といったルーチンワークをテンプレート化。ミスなく短時間で遂行できる拠点を構築します。</p>
                         </div>
                       </div>
                     </div>
@@ -175,9 +188,9 @@ const App = () => {
             </section>
 
             <section className="py-20 bg-white px-6">
-              <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-                <ServiceCard icon={<ZapIcon size={36} />} title="再生可能エネルギー事業" desc="太陽光発電設備の販売・設置、およびコンサルティング。エネルギーの自給自足とコスト削減を実現します。" />
-                <ServiceCard icon={<SettingsIcon size={36} />} title="経営・事務DX代行" desc="人事、財務、経理などのバックオフィス業務をシステム化。ミスを減らし、本来集中すべき時間を創出します。" />
+              <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
+                <ServiceCard icon={<ZapIcon size={36} />} title="再生可能エネルギー事業" desc="太陽光発電設備の販売・設置、およびコンサルティング。エネルギーコストの削減と安定運用を仕組みで実現します。" />
+                <ServiceCard icon={<SettingsIcon size={36} />} title="経営・事務DX代行" desc="バックオフィス業務をシステム化し、ヒューマンエラーを排除。サブリース運営における煩雑な収支管理を最適化します。" />
               </div>
             </section>
           </>
@@ -186,9 +199,11 @@ const App = () => {
         return (
           <section className="pt-40 pb-20 px-6 max-w-6xl mx-auto text-left">
             <h2 className="text-4xl font-black mb-12 text-left">提供サービス</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <ServiceCard icon={<ShieldCheckIcon size={36} />} title="サブリリース支援" desc="信頼されるサービス体裁の構築をサポートし、スムーズな事業展開を実現します。" />
-              <ServiceCard icon={<FileTextIcon size={36} />} title="請求書発行自動化" desc="ホテル関連業務等の複雑な請求フローを徹底的にテンプレート化します。" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
+              <ServiceCard icon={<ShieldCheckIcon size={36} />} title="サブリース運営支援" desc="オーナー・管理会社間の信頼を構築するための、透明性の高い管理フローとサービス体裁の構築をサポートします。" />
+              <ServiceCard icon={<FileTextIcon size={36} />} title="請求フロー自動化" desc="ホテル・民泊関連等の複雑な請求書発行業務を徹底的にテンプレート化し、事務工数を大幅に削減します。" />
+              <ServiceCard icon={<CpuIcon size={36} />} title="ITシステム開発" desc="業務フローに最適化された独自ツールの企画・開発。アナログな実務をデジタルの仕組みへ置き換えます。" />
+              <ServiceCard icon={<ZapIcon size={36} />} title="クリーンエネルギー導入" desc="宿泊施設や社屋への太陽光発電設備導入コンサルティング。コスト削減と環境価値の両立を提案します。" />
             </div>
           </section>
         );
@@ -200,8 +215,10 @@ const App = () => {
               {[
                 { label: "商号", value: "Mochi合同会社 (Mochi LLC)" },
                 { label: "代表社員", value: "山崎 啓太" },
-                { label: "所在地", value: "埼玉県蓮田市大字貝塚71番地" },
+                { label: "本店所在地", value: "埼玉県蓮田市大字貝塚71番地" },
                 { label: "設立", value: "2021年2月15日" },
+                { label: "資本金", value: "1,000,000円" },
+                { label: "法人番号", value: "0300-03-016708" }
               ].map((item, i) => (
                 <div key={i} className="text-left">
                   <p className="text-[10px] font-black text-[#4a9d86]/60 tracking-widest uppercase mb-2 text-left">{item.label}</p>
@@ -227,13 +244,23 @@ const App = () => {
             ))}
             <button className="px-6 py-2.5 bg-[#1a202c] text-white rounded-full text-sm font-bold hover:bg-[#4a9d86] transition-all">ご相談</button>
           </div>
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}</button>
+          <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}</button>
         </div>
+        {isMenuOpen && (
+          <div className="fixed inset-0 bg-white z-[60] p-8 flex flex-col text-left animate-in fade-in slide-in-from-top duration-300">
+            <div className="flex justify-between items-center mb-12"><Logo /><button onClick={() => setIsMenuOpen(false)}><XIcon size={32} className="text-slate-400" /></button></div>
+            <div className="flex flex-col space-y-8">
+              {NAV_ITEMS.map((item) => (
+                <button key={item.id} onClick={() => { setCurrentPage(item.id); setIsMenuOpen(false); }} className="text-left text-4xl font-black text-slate-800">{item.label}</button>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
       <main className="text-left">{renderContent()}</main>
       <footer className="bg-[#f8fbfa] border-t border-slate-100 py-20 px-6 text-left">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-left">
-          <Logo /><p className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em] text-left">© 2021 Mochi LLC. All rights reserved.</p>
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-left md:text-center text-left">
+          <Logo /><p className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em] text-left text-left text-left">© 2021 Mochi LLC. All rights reserved.</p>
         </div>
       </footer>
     </div>
